@@ -5,8 +5,10 @@
 // TODO: exclude this file from your Github repository for better security
 // There is a specific technique to ignore files in git, which we've talked about
 
+// Set the values of the config: host name (localhost), user (username), password (user password)
+
 $config = [
-    'host' => '',
-    'user' => '',
-    'password' => '',
+    'host' => 'localhost',
+    'user' => 'root',
+    'password' => 'root',
 ];
