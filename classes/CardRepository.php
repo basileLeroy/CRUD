@@ -5,17 +5,28 @@
 // This technique is called the repository pattern
 class CardRepository
 {
+
     private $databaseManager;
+    public $newName;
 
     // This class needs a database connection to function
     public function __construct(DatabaseManager $databaseManager)
     {
         $this->databaseManager = $databaseManager;
+        $this->newName = $_POST["add"];
+        
     }
 
     public function create()
     {
+        $newName = $this->newName;
+        if (!empty($_POST['add'])) {
 
+            $create = $this->databaseManager->database->query("INSERT INTO marble_list (name) VALUES ('$newName')");
+            $this->get();
+            header("Location: ../index.php?action=success");
+        }
+        return $create;
     }
 
     // Get one
@@ -41,17 +52,15 @@ class CardRepository
         // ];
 
         // We get the database connection first, so we can apply our queries with it
-        // $question = "SELECT * FROM CRUD;";
-        // $dataDump = mysqli_query($this->databaseManager->database, $question);
         $result = $this->databaseManager->database->query("SELECT * FROM marble_list ORDER BY name");
 
         if (!$result) {
             var_dump($this->databaseManager->database->error);
         }
 
-        echo '<pre>';
-        var_dump($result->fetch_all(MYSQLI_ASSOC));
-        echo '</pre>';
+        // echo '<pre>';
+        // var_dump($result->fetch_all(MYSQLI_ASSOC));
+        // echo '</pre>';
         return $result;
     }
 
