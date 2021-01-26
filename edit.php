@@ -1,45 +1,21 @@
 <?php 
-    require 'classes/CardRepository.php';
-?>
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport"
-		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Goodcard - Edit your collection</title>
-</head>
-<body>
+require 'setup.php';
 
-<h1>Goodcard - Edit your collection</h1>
+if (!empty($_POST['save'])) {
+    
+    // TODO: Gather all the info you need
+    $id = $_GET['id'];
+    $updatedName = $_POST['updatedName'];
 
-<?php 
-    echo "<pre>";
-    var_dump($_GET);
-    echo "</pre>";
-?>
-<ul>
-    <li><?= $_GET["name"]; ?></li>
-</ul>
+    // TODO: Create the update
+    $cardRepository->update($id, $updatedName);
+}
 
-<br><br>
-<hr>
-<br>
-<?php
-echo "<pre>";
-var_dump($_POST);
-echo "</pre>";
-?>
+if (!empty($_POST['delete'])) {
 
-<form action="" method="POST">
-	<h4>Change your item!</h4>
-	<br>
-	<input type="text" name="editName" placeholder="New name of the marble">
-	<br>
-	<button type="submit" name="save" value="saved">Save</button>
-    <button type="submit" style="background-color: #f05454;" name="delete">Delete</button>
-</form>
+    $id = $_GET['id'];
+    $cardRepository->delete($id);
+}
 
-</body>
-</html>
+require 'editView.php';
+

@@ -16,7 +16,7 @@
 
 <?php foreach ($cards as $card) : ?>
 	<form method="GET">
-		<li><?= $card['name']?> <span style="font-size: 10px;"><a href="edit.php?name=<?= $card['name'] ?>">edit</a></span></li>
+		<li><?= $card['name']?> <span style="font-size: 10px;"><a href="edit.php?id=<?= $card['id'] ?>">edit</a></span></li>
 	</form>
 <?php endforeach; ?>
 </ul>
