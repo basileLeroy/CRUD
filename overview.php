@@ -13,8 +13,11 @@
 <h1>Goodcard - track your collection of marbles</h1>
 
 <ul>
+
 <?php foreach ($cards as $card) : ?>
-    <li><?= $card['name'] ?></li>
+	<form method="GET">
+		<li><?= $card['name']?> <span style="font-size: 10px;"><a href="edit.php?name=<?= $card['name'] ?>">edit</a></span></li>
+	</form>
 <?php endforeach; ?>
 </ul>
 <br><br>

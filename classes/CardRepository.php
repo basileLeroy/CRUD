@@ -8,6 +8,8 @@ class CardRepository
 
     private $databaseManager;
     public $newName;
+    public $edit;
+    public $updateName;
 
     // This class needs a database connection to function
     public function __construct(DatabaseManager $databaseManager)
@@ -72,7 +74,25 @@ class CardRepository
 
     public function update()
     {
+        // echo "I AM STUCK";
+        if (!empty($_POST['save'])) {
 
+            $this->edit = $_GET['name'];
+            $this->updateName = $_POST['editName'];
+            $edit = $this->databaseManager->database->query("UPDATE marble_list SET name = '$this->updateName' WHERE name = $this->edit;");
+    
+            if (!$edit) {
+                var_dump($this->databaseManager->database->error);
+            }
+            
+            return $edit;
+            header('Location: ../index.php');
+
+        }
+
+        // echo '<pre>';
+        // var_dump($edit->fetch_all(MYSQLI_ASSOC));
+        // echo '</pre>';
     }
 
     public function delete()
