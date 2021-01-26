@@ -13,21 +13,26 @@ class CardRepository
     public function __construct(DatabaseManager $databaseManager)
     {
         $this->databaseManager = $databaseManager;
-        $this->newName = $_POST["add"];
-        var_dump($_POST["add"]);
+        
         
     }
 
     public function create()
     {
-        $newName = $this->newName;
+        
         if (!empty($_POST['add'])) {
+            $this->newName = $_POST['add'];
 
-            $create = $this->databaseManager->database->query("INSERT INTO marble_list (name) VALUES ('$newName')");
-            $this->get();
-            header("Location: ../index.php?action=success");
+            $create = $this->databaseManager->database->query("INSERT INTO marble_list (name) VALUES ('$this->newName')");
+
+            if (!$create) {
+                var_dump($this->databaseManager->database->error);
+            }
+
+            return $create;
         }
-        return $create;
+        
+        $this->get();
     }
 
     // Get one
@@ -53,7 +58,7 @@ class CardRepository
         // ];
 
         // We get the database connection first, so we can apply our queries with it
-        $result = $this->databaseManager->database->query("SELECT * FROM marble_list ORDER BY name");
+        $result = $this->databaseManager->database->query("SELECT * FROM marble_list");
 
         if (!$result) {
             var_dump($this->databaseManager->database->error);
