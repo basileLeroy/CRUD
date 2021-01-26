@@ -14,6 +14,7 @@ class CardRepository
     {
         $this->databaseManager = $databaseManager;
         $this->newName = $_POST["add"];
+        var_dump($_POST["add"]);
         
     }
 
