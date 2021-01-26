@@ -1,4 +1,5 @@
-  
+<!-- This is the view of the landing page (tied to index.php) -->
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,18 +17,18 @@
 
 <?php foreach ($cards as $card) : ?>
 	<form method="GET">
-		<li><?= $card['name']?> <span style="font-size: 10px;"><a href="edit.php?id=<?= $card['id'] ?>">edit</a></span></li>
+		<li><?= $card['name']?> <span style="font-size: 10px;"><a href="edit.php?id=<?= $card['id'] ?>&name=<?= $card['name'] ?>">edit</a></span></li>
 	</form>
 <?php endforeach; ?>
 </ul>
 <br><br>
 <hr>
 <br>
-<?php
+<!-- <?php
 echo "<pre>";
 var_dump($_POST);
 echo "</pre>";
-?>
+?> -->
 
 <form action="" method="POST">
 	<h4>Add a new item to the list!</h4>

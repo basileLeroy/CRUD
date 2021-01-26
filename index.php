@@ -1,3 +1,5 @@
+<!-- This is the logic specifically for the landing page (could be called landing_index) -->
+
 <?php
 
 require 'setup.php';

@@ -1,3 +1,5 @@
+<!-- Here will be the logic used in all pages (could be called logic_base.php for clarity). -->
+
 <?php
 
 // Require the correct variable type to be used (no auto-converting)

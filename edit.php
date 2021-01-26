@@ -1,3 +1,5 @@
+<!-- This is the logic specifically for the Edit page (could be called edit_index for clarity) -->
+
 <?php 
 require 'setup.php';
 
