@@ -1,5 +1,3 @@
-<!-- This is the file with all the functions and queries. -->
-
 <?php
 
 // This class is focussed on dealing with queries for one type of data

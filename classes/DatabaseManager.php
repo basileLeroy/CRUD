@@ -1,5 +1,3 @@
-<!-- This is the file where we create the connection to the database. -->
-
 <?php
 
 // This class will manage the connection to the database

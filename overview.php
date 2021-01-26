@@ -1,5 +1,3 @@
-<!-- This is the view of the landing page (tied to index.php) -->
-
 <!doctype html>
 <html lang="en">
 <head>

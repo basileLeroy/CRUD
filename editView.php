@@ -37,6 +37,8 @@ echo "</pre>";
 	<button type="submit" style="background-color: #bbf1fa; color: black;" name="save" value="saved">Save</button>
     <button type="submit" style="background-color: #f05454; color: white;" value="delete" name="delete">Delete</button>
 </form>
+<br><br>
+<a href="index.php">Go back</a>
 
 </body>
 </html>
